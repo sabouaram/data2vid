@@ -58,7 +58,7 @@ func DecodeCommand() *cobra.Command {
 				os.Exit(1)
 			}
 
-			enc = encoder.NewVideoEncoder()
+			enc = encoder.NewVideoEncoder(rootCfg)
 
 			rootLogger.Info("Starting decoding",
 				zap.String("input", videoFile),

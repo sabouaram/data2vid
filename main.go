@@ -5,6 +5,8 @@ import (
 	"time"
 
 	"github.com/sabouaram/data2vid/cmd"
+	"github.com/sabouaram/data2vid/internal/config"
+	"github.com/spf13/viper"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 )
@@ -12,6 +14,8 @@ import (
 var (
 	logger *zap.Logger
 	err    error
+
+	cfg *viper.Viper
 )
 
 func customLevelEncoder(l zapcore.Level, enc zapcore.PrimitiveArrayEncoder) {
@@ -67,5 +71,9 @@ func main() {
 
 	defer logger.Sync()
 
-	cmd.Execute(logger)
+	if cfg, err = config.ReadConfig(); err != nil {
+		logger.Fatal("config error: ", zap.Any("error =>", err))
+	}
+
+	cmd.Execute(logger,cfg)
 }

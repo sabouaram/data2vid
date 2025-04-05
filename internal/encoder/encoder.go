@@ -9,6 +9,7 @@ import (
 	"github.com/sabouaram/data2vid/internal/constants"
 	"github.com/sabouaram/data2vid/internal/frame"
 	"github.com/sabouaram/data2vid/internal/video"
+	"github.com/spf13/viper"
 )
 
 // VideoEncoder handles encoding and decoding of files to/from video
@@ -21,12 +22,26 @@ type VideoEncoder struct {
 }
 
 // NewVideoEncoder creates a new encoder with default constant settings
-func NewVideoEncoder() *VideoEncoder {
-	return &VideoEncoder{
+func NewVideoEncoder(cfg *viper.Viper) *VideoEncoder {
+	encoder := &VideoEncoder{
 		frameWidth:  constants.DefaultWidth,
 		frameHeight: constants.DefaultHeight,
 		frameRate:   constants.DefaultFrameRate,
 	}
+
+	if cfg != nil {
+		if cfg.GetInt("Width") != 0 {
+			encoder.frameWidth = cfg.GetInt("Width")
+		}
+
+		if cfg.GetInt("Height") != 0 {
+			encoder.frameHeight = cfg.GetInt("Height")
+		}
+	}
+
+	constants.MaxPayloadPerFrame = ((encoder.frameHeight * encoder.frameWidth) / 8) - constants.HeaderSize
+
+	return encoder
 }
 
 // EncodeFile encodes any file type into an MP4 video file

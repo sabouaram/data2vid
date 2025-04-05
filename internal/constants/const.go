@@ -1,5 +1,7 @@
 package constants
 
+var MaxPayloadPerFrame = ((DefaultHeight * DefaultWidth) / 8) - HeaderSize
+
 const (
 	// default frame width
 	DefaultWidth = 1280
@@ -9,9 +11,6 @@ const (
 
 	// default frame rate
 	DefaultFrameRate = 1
-
-	//  maximum data/frame
-	MaxPayloadPerFrame = ((1280 * 720) / 8) - 32 //formula => ((width * height) / 8) - headerSize
 
 	// encoding identifier
 	MagicString = "YTDSv3" // 6 byte magic string
