@@ -4,4 +4,21 @@ The tool works by converting raw binary data directly into mp4 video black & whi
 
 
 
-Ffmpeg standard CLI should be installed on the user OS => https://ffmpeg.org/
+Ffmpeg standard CLI should be installed on the user OS => https://ffmpeg.org/  
+
+1- Building the binary  
+
+```go
+go build -o data2vid
+```
+
+2- Encoding a data file into an mp4  
+
+```go
+./data2vid encode files_test/6mb.pdf -o 6mb.mp4
+```
+
+3- Decoding the original data from the mp4  
+```go
+./data2vid decode 6mb.mp4 -o original.pdf
+```
