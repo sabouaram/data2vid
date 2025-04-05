@@ -10,7 +10,6 @@ import (
 var (
 	rootLogger *zap.Logger
 	rootCmd    = &cobra.Command{
-		Use:   "videocodec",
 		Short: "Encode/decode files to/from video format",
 	}
 )
