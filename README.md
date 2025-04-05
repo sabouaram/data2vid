@@ -39,8 +39,8 @@ go build -o data2vid
   - Pixel Format	yuv420p	Widely compatible color space  
 
 📏 Adjustable (via `config.yaml`):  
-  - Frame Width -> Default: 1280  
-  - Frame Height -> Default: 720  
+  - Frame Width -> Default: 1280 Pixels   
+  - Frame Height -> Default: 720 Pixels    
 
 <div align="center">
 <table>
