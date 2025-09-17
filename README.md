@@ -41,20 +41,6 @@ go build -o data2vid
 📏 Adjustable (via `config.yaml`):  
   - Frame Width -> Default: 1280 Pixels   
   - Frame Height -> Default: 720 Pixels    
-
-<div align="center">
-<table>
-  <tr>
-    <td><strong>Original Image</strong></td>
-    <td><strong>Converted MP4 Screenshot</strong></td>
-  </tr>
-  <tr>
-    <td><img src="https://camo.githubusercontent.com/7bd57e32f00815ff4bb10e1eeca5e322208e3a29d98a43012387f5dd863209b7/68747470733a2f2f692e6962622e636f2f6a6b317948747a6d2f68656c6c6f2e706e67" width="300" /></td>
-    <td><img src="https://i.ibb.co/MQpJkFC/Screenshot-from-2025-04-05-17-10-18.png" width="300"/></td>
-  </tr>
-</table>
-</div>
-
-
+  
 
 #
